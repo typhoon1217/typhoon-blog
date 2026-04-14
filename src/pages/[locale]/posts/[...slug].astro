@@ -14,6 +14,7 @@ import PostMetadata from "../../../components/PostMeta.astro";
 import { profileConfig, siteConfig } from "../../../config";
 import { getSlugWithoutLocale } from "../../../utils/content-utils";
 import { formatDateToYYYYMMDD } from "../../../utils/date-utils";
+import Giscus from "@components/Giscus.svelte";
 
 export async function getStaticPaths() {
 	const paths = [];
@@ -111,6 +112,7 @@ const jsonLd = {
             </Markdown>
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
+            <Giscus client:only="svelte" lang={locale} />
         </div>
     </div>
 
