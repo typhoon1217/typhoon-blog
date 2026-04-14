@@ -19,7 +19,10 @@ let links: NavBarLink[] = navBarConfig.links.map(
 		if (typeof item === "number") {
 			const preset = LinkPresets[item];
 			// Prefix internal links with current locale
-			return { ...preset, url: `/${locale}${preset.url === "/" ? "/" : preset.url}` };
+			return {
+				...preset,
+				url: `/${locale}${preset.url === "/" ? "/" : preset.url}`,
+			};
 		}
 		return item;
 	},

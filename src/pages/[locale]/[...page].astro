@@ -7,17 +7,17 @@ import MainGridLayout from "../../layouts/MainGridLayout.astro";
 import { getSortedPostsByLocale } from "../../utils/content-utils";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const paths = [];
-    for (const locale of ["en", "ko"]) {
-        const posts = await getSortedPostsByLocale(locale);
-        paths.push(
-            ...paginate(posts, {
-                pageSize: PAGE_SIZE,
-                params: { locale },
-            }),
-        );
-    }
-    return paths;
+	const paths = [];
+	for (const locale of ["en", "ko"]) {
+		const posts = await getSortedPostsByLocale(locale);
+		paths.push(
+			...paginate(posts, {
+				pageSize: PAGE_SIZE,
+				params: { locale },
+			}),
+		);
+	}
+	return paths;
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;

@@ -6,21 +6,18 @@ import { i18n } from "../../i18n/translation";
 import MainGridLayout from "../../layouts/MainGridLayout.astro";
 
 export async function getStaticPaths() {
-    return [
-        { params: { locale: "en" } },
-        { params: { locale: "ko" } },
-    ];
+	return [{ params: { locale: "en" } }, { params: { locale: "ko" } }];
 }
 
 const { locale } = Astro.params;
 
 // Try to load locale-specific about page, fall back to English
 const aboutPost =
-    (await getEntry("spec", locale === "ko" ? "about-ko" : "about")) ??
-    (await getEntry("spec", "about"));
+	(await getEntry("spec", locale === "ko" ? "about-ko" : "about")) ??
+	(await getEntry("spec", "about"));
 
 if (!aboutPost) {
-    throw new Error("About page content not found");
+	throw new Error("About page content not found");
 }
 
 const { Content } = await render(aboutPost);

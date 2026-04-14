@@ -16,20 +16,20 @@ import { getSlugWithoutLocale } from "../../../utils/content-utils";
 import { formatDateToYYYYMMDD } from "../../../utils/date-utils";
 
 export async function getStaticPaths() {
-    const paths = [];
-    for (const locale of ["en", "ko"]) {
-        const posts = await getSortedPostsByLocale(locale);
-        for (const entry of posts) {
-            paths.push({
-                params: {
-                    locale,
-                    slug: getSlugWithoutLocale(entry.slug),
-                },
-                props: { entry },
-            });
-        }
-    }
-    return paths;
+	const paths = [];
+	for (const locale of ["en", "ko"]) {
+		const posts = await getSortedPostsByLocale(locale);
+		for (const entry of posts) {
+			paths.push({
+				params: {
+					locale,
+					slug: getSlugWithoutLocale(entry.slug),
+				},
+				props: { entry },
+			});
+		}
+	}
+	return paths;
 }
 
 const { entry } = Astro.props;
@@ -37,20 +37,20 @@ const { Content, headings } = await entry.render();
 const { remarkPluginFrontmatter } = await entry.render();
 
 const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: entry.data.title,
-    description: entry.data.description || entry.data.title,
-    keywords: entry.data.tags,
-    author: {
-        "@type": "Person",
-        name: profileConfig.name,
-        url: Astro.site,
-    },
-    datePublished: formatDateToYYYYMMDD(entry.data.published),
-    inLanguage: entry.data.lang
-        ? entry.data.lang.replace("_", "-")
-        : siteConfig.lang.replace("_", "-"),
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: entry.data.title,
+	description: entry.data.description || entry.data.title,
+	keywords: entry.data.tags,
+	author: {
+		"@type": "Person",
+		name: profileConfig.name,
+		url: Astro.site,
+	},
+	datePublished: formatDateToYYYYMMDD(entry.data.published),
+	inLanguage: entry.data.lang
+		? entry.data.lang.replace("_", "-")
+		: siteConfig.lang.replace("_", "-"),
 };
 ---
 

@@ -16,7 +16,9 @@ function joinUrl(...parts: string[]): string {
 export function getPostUrlBySlug(slug: string): string {
 	const locale = getLocaleFromSlug(slug);
 	const cleanSlug = getSlugWithoutLocale(slug);
-	return joinUrl("", import.meta.env.BASE_URL, locale, "posts", cleanSlug) + "/";
+	return (
+		joinUrl("", import.meta.env.BASE_URL, locale, "posts", cleanSlug) + "/"
+	);
 }
 
 export function getTagUrl(tag: string, locale = "en"): string {
@@ -31,7 +33,9 @@ export function getCategoryUrl(category: string | null, locale = "en"): string {
 		category.trim().toLowerCase() === i18n(I18nKey.uncategorized).toLowerCase()
 	)
 		return url(`/${locale}/archive/?uncategorized=true`);
-	return url(`/${locale}/archive/?category=${encodeURIComponent(category.trim())}`);
+	return url(
+		`/${locale}/archive/?category=${encodeURIComponent(category.trim())}`,
+	);
 }
 
 export function getDir(path: string): string {

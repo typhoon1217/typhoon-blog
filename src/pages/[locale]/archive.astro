@@ -6,10 +6,7 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPostsListByLocale } from "../../utils/content-utils";
 
 export async function getStaticPaths() {
-    return [
-        { params: { locale: "en" } },
-        { params: { locale: "ko" } },
-    ];
+	return [{ params: { locale: "en" } }, { params: { locale: "ko" } }];
 }
 
 const { locale } = Astro.params;

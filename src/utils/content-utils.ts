@@ -1,9 +1,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
-import { getCategoryUrl } from "@utils/url-utils.ts";
-
 import { getLocaleFromSlug, getSlugWithoutLocale } from "@utils/locale-utils";
+import { getCategoryUrl } from "@utils/url-utils.ts";
 export { getLocaleFromSlug, getSlugWithoutLocale };
 
 async function getRawSortedPosts() {
@@ -37,7 +36,9 @@ export async function getSortedPosts() {
 // Returns posts filtered by locale, with prev/next set within same locale
 export async function getSortedPostsByLocale(locale: string) {
 	const allSorted = await getRawSortedPosts();
-	const filtered = allSorted.filter((p) => getLocaleFromSlug(p.slug) === locale);
+	const filtered = allSorted.filter(
+		(p) => getLocaleFromSlug(p.slug) === locale,
+	);
 
 	for (let i = 1; i < filtered.length; i++) {
 		filtered[i].data.nextSlug = filtered[i - 1].slug;
@@ -64,7 +65,9 @@ export async function getSortedPostsList(): Promise<PostForList[]> {
 	}));
 }
 
-export async function getSortedPostsListByLocale(locale: string): Promise<PostForList[]> {
+export async function getSortedPostsListByLocale(
+	locale: string,
+): Promise<PostForList[]> {
 	const posts = await getSortedPostsByLocale(locale);
 	return posts.map((post) => ({
 		slug: post.slug,
@@ -115,7 +118,9 @@ export async function getCategoryList(): Promise<Category[]> {
 	return buildCategoryList(allBlogPosts);
 }
 
-export async function getCategoryListByLocale(locale: string): Promise<Category[]> {
+export async function getCategoryListByLocale(
+	locale: string,
+): Promise<Category[]> {
 	const posts = await getSortedPostsByLocale(locale);
 	return buildCategoryList(posts);
 }
