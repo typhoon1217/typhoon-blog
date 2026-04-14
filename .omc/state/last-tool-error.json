@@ -1,0 +1,7 @@
+{
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://blog.naver.com/pjt3591oo/223922505056\",\"prompt\":\"Extract the full text content of this blog post. Focus on the writing style, tone, sentence structure, how technical concepts are expla...",
+  "error": "Claude Code is unable to fetch from blog.naver.com",
+  "timestamp": "2026-04-14T01:44:48.990Z",
+  "retry_count": 1
+}
