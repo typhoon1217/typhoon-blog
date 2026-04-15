@@ -2,7 +2,9 @@
 
 신중우의 개발 블로그. Backend, ML, Infrastructure.
 
-- **URL**: https://typhoon.is-a.dev (배포 후 활성화)
+- **URL**: https://typhoon.is-a.dev
+- **Preview**: https://typhoon-blog.pages.dev
+- **GitHub**: https://github.com/typhoon1217/typhoon-blog
 - **Stack**: Astro + Fuwari + Tailwind CSS + Cloudflare Pages
 - **언어**: 한국어 / English
 
