@@ -13,6 +13,7 @@ tags:
   - english
 category: Infrastructure
 draft: false
+featured: true
 ---
 
 My homelab Proxmox host had not been patched in close to a year. Kernel 6.8.12-9-pve, sudo CVE-2026-35535 still open. The plan was to do the audit and the PVE 9 migration in a single session. Halfway through, docker broke on every container.

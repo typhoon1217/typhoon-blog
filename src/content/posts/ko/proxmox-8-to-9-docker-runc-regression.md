@@ -13,6 +13,7 @@ tags:
   - korean
 category: 인프라
 draft: false
+featured: true
 ---
 
 홈랩 Proxmox 호스트가 1년 가까이 패치를 못 받고 있었다. 커널 6.8.12-9-pve, sudo CVE-2026-35535도 미패치. 하루 안에 점검부터 PVE 9 마이그레이션까지 끝낼 작정이었는데, 중간에 도커가 통째로 깨졌다.
