@@ -9,7 +9,7 @@ category: Personal
 draft: false
 ---
 
-I work as a Global Engineer at Metsakuur, a Korean security company specializing in facial recognition. My role covers backend, infrastructure, and ML — whatever the situation calls for.
+I work as a Global Engineer at Metsakuur, a Korean security company specializing in facial recognition. The role spans backend, infrastructure, and ML — whatever the situation calls for, in either domestic or global-customer contexts.
 
 ## Tech Stack
 
